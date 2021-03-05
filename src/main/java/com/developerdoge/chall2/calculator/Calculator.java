@@ -109,10 +109,10 @@ public class Calculator {
             }
             case safe -> {
 
-                //To be 'safe', let's follow significant figure rules.
+                //To be 'safe', let's follow significant figure rules - and then + 1 spot.
                 //The output will only have as many decimal places as the largest amount of places of the numbers.
 
-                int decimalCount = 0;
+                int decimalCount = 1;
                 for (Number number : input.values) {
                     String[] data = Double.toString(number.doubleValue()).split("\\.");
 
@@ -121,7 +121,7 @@ public class Calculator {
                         int count = data[1].length();
                         if (count > decimalCount) {
 
-                            decimalCount = count;
+                            decimalCount = count+1;
 
                         }
                     }
